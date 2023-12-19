@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word-Character-Counter</title>
+    <style>
+        body{
+            padding: 12px;
+        }
+        .box{
+            width:60%;
+            margin:0 auto;
+            border:1px solid #333;
+        }
+        .box h2{
+            margin: 0;
+    padding: 10px;
+    text-align: center;
+    background: skyblue;
+    font-family: sans-serif;
+        }
+        textarea{
+            width:99%;
+            border-left:none;
+            border-right:none;
+            outline:none;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+<h2>Word-Character Counter</h2>
+<textarea name="" id="para" cols="30" rows="10"></textarea>
+<h2 style="margin-top:-10px;">Total Word <span id="word">0</span> and Total Character <span id="char">0</span></h2>
+    </div>
+
+    <script>
+        let txt=document.getElementById("para");
+       txt.addEventListener('input', function(){
+           document.getElementById("char").innerHTML=txt.value.length;
+           let lenth=txt.value.split(" ");
+           let clean=lenth.filter(function(cl){
+               return cl!="";
+           })
+
+           document.getElementById("word").innerHTML=clean.length;
+
+       })
+    </script>
+</body>
+</html>
